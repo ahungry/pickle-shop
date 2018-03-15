@@ -3,6 +3,8 @@ const fs = require('fs')
 const createTestCafe = require('testcafe')
 import testControllerHolder from '../support/testControllerHolder'
 
+console.log('Loading the hooks wrapper...')
+
 var testcafe = null
 var DELAY = 5000
 function createTestFile () {
@@ -36,6 +38,7 @@ function runTest () {
 }
 
 function CustomWorld () {
+  this.worldName = 'My World'
   this.waitForTestController = testControllerHolder.get
 }
 

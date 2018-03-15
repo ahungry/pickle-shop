@@ -5,7 +5,7 @@
   "author": "Matthew Carter",
   "scripts": {
     "lint": "./node_modules/.bin/tslint --project tsconfig.json ./src/**/*",
-    "test": "./node_modules/cucumber/bin/cucumber-js --require-module ts-node/register --require 'src/**/*.ts'"
+    "test": "./node_modules/cucumber/bin/cucumber-js --require-module ts-node/register --require 'src/step_definitions/hooks.ts' --require 'src/**/*.ts'"
   },
   "dependencies": {
     "cucumber": "^4.0.0",

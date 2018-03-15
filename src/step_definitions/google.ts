@@ -5,6 +5,8 @@ const testControllerHolder = require('../support/testControllerHolder')
 var testController = null
 
 Given('I am open Google\'s search page', function () {
+  console.log(`My world is: ${this.worldName}`)
+
   return this.waitForTestController()
     .then(function (tc) {
       testController = tc
