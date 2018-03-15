@@ -11,7 +11,7 @@
     "moduleResolution": "node",
     "target": "es2015",
     "types": [
-      "jest",
+      "cucumber",
       "node"
     ],
     "lib" : ["es2017"]
