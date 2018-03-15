@@ -1,15 +1,23 @@
-# An example of using TestCafe and CucumberJS
+# Pickle Shop
 
-This is a demonstration of integration [TestCafe](https://github.com/DevExpress/testcafe) into [CucumberJS](https://github.com/cucumber/cucumber-js) tests.
+Working sample of testcafe + cucumberjs + typescript.
 
-## Requirements
-* TestCafe
-* CucumberJS
+# Findings
 
-To install it, use the `npm install` command.
+## Assertion Issue
 
-## Running tests
+A failed assertion with the testcafe controller's `expect`
+will crash future tests with a repeated failure message.
 
-You can run tests by executing the `.\node_modules\.bin\cucumber-js.cmd` or `npm test` commands in command prompt
+Best to just use a different assertion library (chai) to avoid
+the problem entirely.
 
-![Test run report](./images/test-run.png)
+## World.js
+
+Even though the file isn't used, cucumberjs won't run properly
+unless it finds a world.js in one of the included directories in it's
+run command (maybe there is a good workaround for it).
+
+# License
+
+GPLv3
