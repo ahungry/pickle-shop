@@ -5,14 +5,16 @@
   "author": "Matthew Carter",
   "scripts": {
     "lint": "./node_modules/.bin/tslint --project tsconfig.json ./src/**/*",
-    "test": "./node_modules/cucumber/bin/cucumber-js --require-module ts-node/register --require 'src/step_definitions/hooks.ts' --require 'src/**/*.ts'"
+    "test": "./node_modules/cucumber/bin/cucumber-js --require-module ts-node/register --require 'src/**/*.ts'"
   },
   "dependencies": {
+    "chai": "^4.1.2",
     "cucumber": "^4.0.0",
     "testcafe": "^0.19.1",
     "ts-node": "^4.1.0"
   },
   "devDependencies": {
+    "@types/chai": "^4.1.2",
     "@types/cucumber": "^4.0.1",
     "@types/node": "^9.4.7",
     "tslint": "^5.9.1",

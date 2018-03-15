@@ -1,3 +1,5 @@
+import * as p from 'process'
+
 import { BeforeAll, AfterAll, setWorldConstructor } from 'cucumber'
 const fs = require('fs')
 const createTestCafe = require('testcafe')
@@ -20,7 +22,7 @@ function runTest () {
   var runner = null
 
   createTestCafe('localhost', 1337, 1338)
-    .then(function (tc) {
+    .then(function (tc: any) {
       testcafe = tc
       runner = tc.createRunner()
 
@@ -28,12 +30,12 @@ function runTest () {
         .src('./test.js')
         .browsers('firefox:headless')
         .run()
-        .catch(function (error) {
-          console.log(error)
+        .catch(function (error: any) {
+          console.log('Runner error count was: ', error)
         })
     })
-    .then(function (report) {
-      console.log(report)
+    .then(function (report: any) {
+      console.log('Report data was: ', report)
     })
 }
 
