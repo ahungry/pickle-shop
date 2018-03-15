@@ -1,0 +1,15 @@
+{
+  "name": "testcafe-cucumber-demo",
+  "version": "0.0.1",
+  "description": "An example integration of TestCafe into CucumberJS",
+  "author": "helen-dikareva",
+  "scripts": {
+    "test": "./node_modules/cucumber/bin/cucumber-js --require-module ts-node/register --require 'features/**/*.ts'"
+
+  },
+  "dependencies": {
+    "cucumber": "4.0.0",
+    "testcafe": "^0.18.6",
+    "ts-node": "^4.1.0"
+  }
+}
