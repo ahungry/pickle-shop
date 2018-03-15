@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "outDir": "./lib",
+    "declaration": true,
+    "declarationDir": "./lib",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "noResolve": false,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es2015",
+    "types": [
+      "jest",
+      "node"
+    ],
+    "lib" : ["es2017"]
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "./src/bin.ts",
+    "./src/**/*.spec.*"
+  ]
+}

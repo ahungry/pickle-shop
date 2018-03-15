@@ -1,15 +1,19 @@
 {
-  "name": "testcafe-cucumber-demo",
+  "name": "pickle-shop",
   "version": "0.0.1",
-  "description": "An example integration of TestCafe into CucumberJS",
-  "author": "helen-dikareva",
+  "description": "Bridge for Testcafe and Cucumberjs",
+  "author": "Matthew Carter",
   "scripts": {
-    "test": "./node_modules/cucumber/bin/cucumber-js --require-module ts-node/register --require 'features/**/*.ts'"
-
+    "lint": "./node_modules/.bin/tslint --project tsconfig.json ./src/**/*",
+    "test": "./node_modules/cucumber/bin/cucumber-js --require-module ts-node/register --require 'src/**/*.ts'"
   },
   "dependencies": {
-    "cucumber": "4.0.0",
-    "testcafe": "^0.18.6",
+    "cucumber": "^4.0.0",
+    "testcafe": "^0.19.1",
     "ts-node": "^4.1.0"
+  },
+  "devDependencies": {
+    "tslint": "^5.9.1",
+    "tslint-config-standard": "^7.0.0"
   }
 }
