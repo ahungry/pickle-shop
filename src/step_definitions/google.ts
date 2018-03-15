@@ -1,3 +1,5 @@
+import { expect } from 'chai'
+
 import { Given, When, Then } from 'cucumber'
 var Selector = require('testcafe').Selector
 const testControllerHolder = require('../support/testControllerHolder')
@@ -25,8 +27,9 @@ Then('I am pressing {string} key on Google', function (text) {
   return testController.pressKey(text)
 })
 
-Then('I should see that the first Google\'s result is {string}', function (text) {
-  var firstLink = Selector('#rso').find('a').with({ boundTestRun: testController })
+Then('I should see that the first Google\'s result is {string}', async (text) => {
+  const firstLink = await Selector('#rso').find('a').with({ boundTestRun: testController })
+  const found = await firstLink.innerText
 
-  return testController.expect(firstLink.innerText).contains(text)
+  expect(found).to.match(new RegExp(text))
 })

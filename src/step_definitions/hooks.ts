@@ -56,4 +56,5 @@ AfterAll(function (callback) {
   testControllerHolder.free()
   fs.unlinkSync('test.js')
   setTimeout(callback, DELAY)
+  setTimeout(() => p.exit(), DELAY * 2)
 })
