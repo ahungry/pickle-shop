@@ -28,7 +28,7 @@ function runTest () {
 
       return runner
         .src('./test.js')
-        .browsers('firefox:headless')
+        .browsers('firefox')
         .run()
         .catch(function (error: any) {
           console.log('Runner error count was: ', error)
