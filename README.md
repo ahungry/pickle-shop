@@ -12,7 +12,13 @@ Clone the repository:
 git clone https://github.com/ahungry/pickle-shop.git
 ```
 
-Change into the directory and run the tests with GNU Make:
+Change into the directory:
+
+```
+cd pickle-shop
+```
+
+and run the tests with GNU Make:
 
 ```
 make test
