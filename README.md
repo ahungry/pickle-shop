@@ -32,6 +32,46 @@ npm install
 npm run test
 ```
 
+# Code layout walkthrough
+
+## Page Object Models (POMs)
+
+You can find the POMs (Page Object Models) in:
+
+```
+❯ tree src/models
+src/models
+└── ExampleHome.js
+```
+
+This is where you can map out a page's structure.  Take a look at ExampleHome.js.
+
+## Step Definitions
+
+You can find the step definitions in:
+
+```
+❯ tree src/step_definitions
+src/step_definitions
+├── example.js
+└── hooks.js
+```
+
+Ignore the hooks.js - that's just for internal glue in this approach -
+take a look at example.js.
+
+## Feature Files
+
+You can find the feature files (Gherkin/Cucumber syntax) in:
+
+```
+❯ tree features
+features
+└── example.feature
+```
+
+This is where you can see the defined acceptance criteria.
+
 # General notes/findings
 
 ## Assertion Issue
