@@ -4,7 +4,7 @@ var testControllerHolder = {
   captureResolver: null,
   getResolver: null,
 
-  capture: function (t: TestController) {
+  capture: function (t) {
     testControllerHolder.testController = t
 
     if (testControllerHolder.getResolver)
@@ -33,4 +33,4 @@ var testControllerHolder = {
   }
 }
 
-export default testControllerHolder
+module.exports = testControllerHolder

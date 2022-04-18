@@ -1,9 +1,12 @@
-import * as p from 'process'
+const p = require('process')
 
-import { BeforeAll, AfterAll, setWorldConstructor } from 'cucumber'
+const { BeforeAll, AfterAll, setWorldConstructor } = require('cucumber')
 const fs = require('fs')
 const createTestCafe = require('testcafe')
-import testControllerHolder from '../support/testControllerHolder'
+const testControllerHolder = require('../support/testControllerHolder')
+
+console.log(testControllerHolder.get)
+console.log('HERE is the tch')
 
 console.log('Loading the hooks wrapper...')
 
@@ -22,7 +25,7 @@ function runTest () {
   var runner = null
 
   createTestCafe('localhost', 1337, 1338)
-    .then(function (tc: any) {
+    .then(function (tc) {
       testcafe = tc
       runner = tc.createRunner()
 
@@ -30,11 +33,11 @@ function runTest () {
         .src('./test.js')
         .browsers('firefox')
         .run()
-        .catch(function (error: any) {
+        .catch(function (error) {
           console.log('Runner error count was: ', error)
         })
     })
-    .then(function (report: any) {
+    .then(function (report) {
       console.log('Report data was: ', report)
     })
 }
