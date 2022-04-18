@@ -1,5 +1,5 @@
 const { expect } = require('chai')
-const { Given, When, Then } = require('cucumber')
+const { Given, When, Then } = require('@cucumber/cucumber')
 const Selector = require('testcafe').Selector
 const testControllerHolder = require('../support/testControllerHolder')
 

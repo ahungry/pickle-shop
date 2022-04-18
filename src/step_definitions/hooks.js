@@ -1,6 +1,8 @@
+// NOTE: Do not touch this file as part of general automation - it's a set up
+// once type file, for glueing together testcafe/cucumber.
 const p = require('process')
 
-const { BeforeAll, AfterAll, setWorldConstructor, setDefaultTimeout } = require('cucumber')
+const { BeforeAll, AfterAll, setWorldConstructor, setDefaultTimeout } = require('@cucumber/cucumber')
 const fs = require('fs')
 const createTestCafe = require('testcafe')
 const testControllerHolder = require('../support/testControllerHolder')
@@ -8,7 +10,7 @@ const testControllerHolder = require('../support/testControllerHolder')
 setDefaultTimeout(1000 * 20)
 
 var testcafe = null
-var DELAY = 5000
+var DELAY = 1000
 function createTestFile () {
   fs.writeFileSync('test.js',
     'import testControllerHolder from "./src/support/testControllerHolder"\n\n' +
@@ -43,7 +45,6 @@ let engine
 
 function CustomWorld () {
   this.worldName = 'My World'
-  this.waitForTestController = testControllerHolder.get
   this.testcafe = engine
 }
 
@@ -52,10 +53,10 @@ setWorldConstructor(CustomWorld)
 BeforeAll(function (callback) {
   createTestFile()
   runTest()
-  console.log('here I am in the beforeAll')
+  console.log('Initializing test runner "testcafe"')
   testControllerHolder.get()
     .then(tch => {
-      console.log('got the engine...')
+      console.log('Beginning tests...')
       engine = tch
       setTimeout(callback, DELAY)
     })

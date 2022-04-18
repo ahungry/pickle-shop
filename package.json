@@ -4,12 +4,11 @@
   "description": "Bridge for Testcafe and Cucumberjs",
   "author": "Matthew Carter",
   "scripts": {
-    "test": "./node_modules/cucumber/bin/cucumber-js --require 'src/**/*.js'"
+    "test": "./node_modules/@cucumber/cucumber/bin/cucumber-js --require 'src/**/*.js'"
   },
   "dependencies": {
+    "@cucumber/cucumber": "^8.0.0",
     "chai": "^4.3.6",
-    "cucumber": "^4.0.0",
     "testcafe": "^1.18.6"
-  },
-  "devDependencies": {}
+  }
 }
