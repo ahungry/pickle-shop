@@ -1,14 +1,11 @@
 const p = require('process')
 
-const { BeforeAll, AfterAll, setWorldConstructor } = require('cucumber')
+const { BeforeAll, AfterAll, setWorldConstructor, setDefaultTimeout } = require('cucumber')
 const fs = require('fs')
 const createTestCafe = require('testcafe')
 const testControllerHolder = require('../support/testControllerHolder')
 
-console.log(testControllerHolder.get)
-console.log('HERE is the tch')
-
-console.log('Loading the hooks wrapper...')
+setDefaultTimeout(1000 * 20)
 
 var testcafe = null
 var DELAY = 5000
@@ -42,9 +39,12 @@ function runTest () {
     })
 }
 
+let engine
+
 function CustomWorld () {
   this.worldName = 'My World'
   this.waitForTestController = testControllerHolder.get
+  this.testcafe = engine
 }
 
 setWorldConstructor(CustomWorld)
@@ -52,7 +52,13 @@ setWorldConstructor(CustomWorld)
 BeforeAll(function (callback) {
   createTestFile()
   runTest()
-  setTimeout(callback, DELAY)
+  console.log('here I am in the beforeAll')
+  testControllerHolder.get()
+    .then(tch => {
+      console.log('got the engine...')
+      engine = tch
+      setTimeout(callback, DELAY)
+    })
 })
 
 AfterAll(function (callback) {
