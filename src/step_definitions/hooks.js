@@ -46,6 +46,9 @@ let engine
 function CustomWorld () {
   this.worldName = 'My World'
   this.testcafe = engine
+  this.getPage = name => {
+    return new (require('../models/' + name))(this.testcafe)
+  }
 }
 
 setWorldConstructor(CustomWorld)
@@ -68,3 +71,5 @@ AfterAll(function (callback) {
   setTimeout(callback, DELAY)
   setTimeout(() => p.exit(), DELAY * 2)
 })
+
+module.exports = { engine }
