@@ -15,7 +15,7 @@ function createTestFile () {
   fs.writeFileSync('test.js',
     'import testControllerHolder from "./src/support/testControllerHolder"\n\n' +
 
-    'fixture("fixture")\n' +
+    'fixture("Executing tests...")\n' +
 
     'test("test", testControllerHolder.capture)')
 }
@@ -37,7 +37,7 @@ function runTest () {
         })
     })
     .then(function (report) {
-      console.log('Report data was: ', report)
+      //console.log('Report data was: ', report)
     })
 }
 
@@ -56,10 +56,8 @@ setWorldConstructor(CustomWorld)
 BeforeAll(function (callback) {
   createTestFile()
   runTest()
-  console.log('Initializing test runner "testcafe"')
   testControllerHolder.get()
     .then(tch => {
-      console.log('Beginning tests...')
       engine = tch
       setTimeout(callback, DELAY)
     })

@@ -1,5 +1,5 @@
 // This file doesn't seem to do anything but cucumber won't run without it.
-console.log('Hit world.js')
+// console.log('Hit world.js')
 
 // var { setWorldConstructor } = require('cucumber')
 // const testControllerHolder = require('./testControllerHolder')

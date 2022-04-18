@@ -1,8 +1,8 @@
-Feature: Searching for TestCafe by Ahungry
+Feature: Trying out a simple scenario
 
-  I want to find TestCafe repository by Ahungry search
+  I want to text a simple website function
 
-  Scenario: Searching for TestCafe by Ahungry
+  Scenario: Visiting Example website
     Given I go to example.com
     When I am sitting there doing nothing
     Then I should see the header "Example Domain"
